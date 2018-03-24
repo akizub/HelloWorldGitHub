@@ -1,0 +1,2 @@
+runtime-mgr standalone-application describe AlexAPI -o json --environment=Dev
+runtime-mgr standalone-application describe AlexAPI -o json --environment=QA
