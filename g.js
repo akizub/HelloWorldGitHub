@@ -156,6 +156,20 @@ function gitCommit() {
 					}
 					console.log(stdout);
 					console.log('done: git commit');
+					gitPush();
+				});
+}
+
+function gitPush() {
+	var command='git push';
+	exec(
+				command, function(e, stdout, stderr) {
+					if (e instanceof Error) {
+						console.error(e);
+						throw e;
+					}
+					console.log(stdout);
+					console.log('done: git push');
 					
 				});
 }
