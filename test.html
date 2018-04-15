@@ -1,0 +1,39 @@
+<html>
+<header><title>Test</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+$.makeTable = function (mydata) {
+  var table = $('<table border=1>');
+  var tblHeader = "<tr>";
+  for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+  tblHeader += "</tr>";
+  $(tblHeader).appendTo(table);
+  $.each(mydata, function (index, value) {
+      var TableRow = "<tr>";
+      $.each(value, function (key, val) {
+          TableRow += "<td>" + val + "</td>";
+      });
+      TableRow += "</tr>";
+      $(table).append(TableRow);
+  });
+  return ($(table));
+};
+</script>
+</header>
+<body>
+Body of test https://code.jquery.com/jquery-3.3.1.min.js
+<div id=TableContent name=TableContent>123</div>
+
+</body>
+
+<script type="text/javascript">
+var mydata = eval('[{"a":"A","b":"B"},{"a":"A2","b":"B2"},{"a":"A3","b":"B3"}]');
+console.log(JSON.stringify(mydata,null,2));
+var table = $.makeTable(mydata);
+$(table).appendTo("#TableContent");
+</script>
+
+
+</html>
